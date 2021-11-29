@@ -1,4 +1,4 @@
-package com.redacted.firstmod.items;
+package com.redacted.firstmod.item;
 
 import com.redacted.firstmod.FirstMod;
 
@@ -15,6 +15,12 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, FirstMod.MOD_ID);
 
     public static final RegistryObject<Item> ADAMANTIUM_INGOT = ITEMS.register("adamantium_ingot",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+
+    public static final RegistryObject<Item> RAW_ADAMANTIUM = ITEMS.register("raw_adamantium",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+
+    public static final RegistryObject<Item> ADAMANTIUM_NUGGET = ITEMS.register("adamantium_nugget",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
 
     public static void register(IEventBus eventBus) {
