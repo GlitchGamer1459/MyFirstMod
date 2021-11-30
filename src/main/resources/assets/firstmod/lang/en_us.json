@@ -2,6 +2,10 @@
   "item.firstmod.adamantium_ingot": "Adamantium Ingot",
   "item.firstmod.raw_adamantium": "Raw Adamantium",
   "item.firstmod.adamantium_nugget": "Adamantium Nugget",
+  "item.firstmod.unobtanium_sword": "Unobtanium Sword",
   
-  "block.firstmod.adamantium_block": "Adamantium Block"
+  "block.firstmod.adamantium_block": "Adamantium Block",
+  "block.firstmod.adamantium_ore": "Adamantium Ore",
+  
+  "itemGroup.firstModTab": "First Mod Tab"
 }

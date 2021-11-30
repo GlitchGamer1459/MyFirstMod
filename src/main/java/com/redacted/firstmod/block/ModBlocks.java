@@ -2,6 +2,7 @@ package com.redacted.firstmod.block;
 
 import com.redacted.firstmod.FirstMod;
 
+import com.redacted.firstmod.item.ModCreativeModeTab;
 import com.redacted.firstmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -17,21 +18,25 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.function.Supplier;
 
 public class ModBlocks {
+
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, FirstMod.MOD_ID);
 
     public static final RegistryObject<Block> ADAMANTIUM_BLOCK = registerBlock("adamantium_block",
-            () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(12f)));
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(15f).requiresCorrectToolForDrops()), ModCreativeModeTab.FIRST_MOD_TAB);
 
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
+    public static final RegistryObject<Block> ADAMANTIUM_ORE = registerBlock("adamantium_ore",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.FIRST_MOD_TAB);
+
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn);
+        registerBlockItem(name, toReturn, tab);
         return toReturn;
     }
 
-    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
+    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+                new Item.Properties().tab(tab)));
     }
 
     public static void register(IEventBus eventBus) {

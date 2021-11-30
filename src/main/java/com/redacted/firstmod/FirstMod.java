@@ -2,6 +2,7 @@ package com.redacted.firstmod;
 
 import com.redacted.firstmod.block.ModBlocks;
 import com.redacted.firstmod.item.ModItems;
+
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(FirstMod.MOD_ID)
 public class FirstMod {
+
     public static final String MOD_ID = "firstmod";
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
